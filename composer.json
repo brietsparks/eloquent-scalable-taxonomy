@@ -1,0 +1,20 @@
+{
+    "name": "bsapaka/eloquent-scalable-taxonomy",
+    "require": {
+        "illuminate/support": "~5.1",
+        "bsapaka/eloquent-attribute": "*",
+        "nanigans/single-table-inheritance": "^0.6.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bsapaka\\ScalableTaxonomy\\": "src/"
+        }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/bsapaka/eloquent-scalable-taxonomy"
+        }
+    ],
+    "minimum-stability":"dev"
+}
