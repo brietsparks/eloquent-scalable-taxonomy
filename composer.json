@@ -16,5 +16,5 @@
             "url": "https://github.com/bsapaka/eloquent-scalable-taxonomy"
         }
     ],
-    "minimum-stability":"dev"
+    "minimum-stability":"stable"
 }
