@@ -10,3 +10,7 @@ Run composer update after adding the following line to composer.json:
 ``` 
 "bsapaka/eloquent-scalable-taxonomy": "dev-master"
 ```
+
+## Usage ##
+
+Refer to [this example app](https://github.com/bsapaka/example-eloquent-scalable-taxonomy).
