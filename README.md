@@ -6,9 +6,8 @@ Create a [single table inheritance](https://github.com/Nanigans/single-table-inh
 ## Install
 
 Via Composer
-Run composer update after adding the following line to composer.json:
 ``` 
-"bsapaka/eloquent-scalable-taxonomy": "dev-master"
+composer require bsapaka/eloquent-scalable-taxonomy
 ```
 
 ## Usage ##
