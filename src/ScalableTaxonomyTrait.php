@@ -1,5 +1,6 @@
 <?php namespace Bsapaka\ScalableTaxonomy;
 
+use Bsapaka\EloquentAttribute\Attribute;
 use Bsapaka\EloquentAttribute\AttributeList;
 use Bsapaka\EloquentAttribute\AttributesTrait;
 use Nanigans\SingleTableInheritance\SingleTableInheritanceTrait;
@@ -162,24 +163,6 @@ trait ScalableTaxonomyTrait {
 		return $class::subClasses($fullyQualified);
 	}
 
-
-
-	#region validation
-	protected $errors;
-
-	/**
-	 * @return bool
-	 */
-	public function hasValidData() {
-		$v = Validator::make($this->getAttributes(), $this->validationRules());
-
-		if ($v->fails()) {
-			$this->errors = $v->errors();
-			return false;
-		}
-		return true;
-	}
-
 	/**
 	 * @return mixed
 	 */
@@ -189,11 +172,23 @@ trait ScalableTaxonomyTrait {
 	}
 
 	/**
-	 * @return mixed
+	 * @param string $error
+	 * @return string
 	 */
-	public function getErrors() {
-		return $this->errors;
+	public static function formatError($error) {
+		$formattedError = '';
+
+		$attributes = static::lineageAttributes(get_called_class());
+
+		/** @var Attribute $attribute */
+		foreach ($attributes as $attribute) {
+			if(str_contains($error, $attribute->getName())) {
+				$formattedError = str_replace($attribute->getName(), $attribute->getAlias(), $error);
+				break;
+			}
+		}
+
+		return $formattedError;
 	}
-	#endregion
 
 }
